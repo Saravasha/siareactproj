@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
-import './Components/formData/email-adress'
-import './Components/formData/firstName'
-import './Components/formData/nationality'
-import './Components/formData/secondName'
 import Age from './Components/formData/age';
+import EmailAdress from './Components/formData/emailAdress';
+import FirstName from './Components/formData/firstName';
+import Nationality from './Components/formData/nationality';
+import SecondName from './Components/formData/secondName';
+import Table from './Components/Table'
+
 
 function App() {
   return (
@@ -24,13 +25,14 @@ function App() {
           Learn React
         </a>
       </header>
-      <div className="Age">
-        {Age}
-        </div>
-      <div className="Email_Adress"><p>Email Adress</p></div>
-      <div className="FirstName"></div>
-      <div className="Nationality"><p>Nationality</p></div>
-      <div className="SecondName"><p>Second Name</p></div>
+      <div className='container'>
+        <Table/>
+      <Age/>
+    <EmailAdress/>
+    <FirstName/>
+    <Nationality/>
+    <SecondName/>
+      </div>   
     </div>
   );
 }

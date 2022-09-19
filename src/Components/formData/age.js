@@ -5,8 +5,8 @@ class Age extends Component {
     return (
     <form>
   <label>
-    Name:
-    <input type="text" name="name" />
+    Age: 
+    <input type="number" name="name" required/>
   </label>
   <input type="submit" value="Submit" />
 </form>
