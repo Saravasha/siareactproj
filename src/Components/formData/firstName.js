@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
-
+import Form from '../Form'
 class FirstName extends Component {
   render() {
     return (
         <form>
-            <label>
-            First Name: 
-            <input type="text" name="name" />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+        <label htmlFor='FirstName'>
+          <input 
+            type="text" 
+            name="FirstName"
+            id='FirstName'
+            value={Form.firstName}
+            placeholder='First Name' 
+            onChange={this.handleChange} 
+            />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
         )
     }
 }
