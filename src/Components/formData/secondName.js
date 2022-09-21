@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
-import Form from '../Form'
-
 class SecondName extends Component {
     render() {
         return (
         <form>
-        <label htmlFor='SecondName'>
+        <label for='SecondName'>
           <input 
             type="text" 
-            name="SecondName"
+            name="secondName"
             id='SecondName'
-            value={Form.secondName}
-            placeholder='Second Name' 
-            onChange={Form.this.handleChange} 
+            placeholder='Second Name'  
+            required
             />
         </label>
-        <input type="submit" value="Submit" />
       </form>
         )
     }

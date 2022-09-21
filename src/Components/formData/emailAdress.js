@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
-import Form from '../Form'
 
 class EmailAdress extends Component {
   render() {
     return (
     <form>
-    <label htmlFor='EmailAdress'>
+    <label for='EmailAdress'>
       <input 
-        type="text" 
-        name="EmailAdress"
+        type="email" 
+        name="emailAdress"
         id='EmailAdress'
-        value={Form.emailAdress}
         placeholder='Email Adress' 
-        onChange={this.handleChange} 
-        />
+        required/>
     </label>
-    <input type="submit" value="Submit" />
   </form>
     )
   }

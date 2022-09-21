@@ -1,134 +1,101 @@
-// import React, { Component } from 'react'
-
+import React from 'react';
+import { useState } from 'react';
 // class Form extends Component {
-//   initialState = {
-//     age: '',
-//     emailAdress: '',
-//     firstName: '',
-//     nationality: '',
-//     secondName: '',
-//   }  
-//   state = this.initialState
-
-//   handleChange = (event) => {
-//     const {[age, value} = event.target
-//     const {emailAdress, value} = event.target
-//     const {firstName, value} = event.target
-//     const {nationality, value} = event.target
-//     const {secondName, value} = event.target
+ function Form() {    
     
-//     this.setState({
-//       [age]: value,
-//       [emailAdress]: value,
-//       [firstName]: value,
-//       [nationality]: value,
-//       [secondName]: value,
-//     })
-//   }
-
-//   submitForm = () => {
-//     this.props.handleSubmit(this.state)
-//     this.setState(this.initialState)
-//   }
-
-//   render() {
-//     const {name, job} = this.state;
-//     return (
-//       <div className='container'>
-//         <Age/>
-//         <EmailAdress/>
-//         <FirstName/>
-//         <Nationality/>
-//         <SecondName/>
-//         <input type="button" value="Submit" onClick={this.submitForm}/>
-//       </div>
-//     );
-//   }
-// }
-//   // render() {
-//   //     return (
-//   //       <div className='container'>
-//   //           <Age/>
-//   //           <EmailAdress/>
-//   //           <FirstName/>
-//   //           <Nationality/>
-//   //           <SecondName/>
-//   //       </div>
-//   //     )
-//   //   }
-//   // }
-  
-//   export default Form
-
-
-
-  import React, {Component} from 'react';
-  import Age from './formData/Age'
-import EmailAdress from './formData/EmailAdress'
-import FirstName from './formData/FirstName'
-import Nationality from './formData/Nationality'
-import SecondName from './formData/SecondName'
-
-
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.initialState = {
-            name: '',
-            job: '',
-            age: '',
-            emailAdress: '',
-            firstName: '',
-            nationality: '',
-            secondName: ''
-
-        };
-
-        this.state = this.initialState;
+    
+    this.initialState = {
+        age: '',
+        emailAdress: '',
+        firstName: '',
+        nationality: '',
+        secondName: ''
     }
-
-    handleChange = event => {
-        const { name, value } = event.target;
-
+    
+    this.state = this.initialState;
+    
+    const handleChange = event => {
+        const { name, value 
+        } = event.target;
+        
         this.setState({
-            [name] : value
+            [name] : value,
         });
     }
-
-    onFormSubmit = (event) => {
+    
+    const onFormSubmit = (event) => {
         event.preventDefault();
         
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
     }
-
-    render() {
-        const { name, job, age } = this.state; 
-
-        return (
-            <form onSubmit={this.onFormSubmit}>
-                <Age onChange={this.handleChange} />
-                <label for="name">Name</label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="name"
-                    value={name} 
-                    onChange={this.handleChange} />
-                <label for="job">Job</label>
-                <input 
-                    type="text" 
-                    name="job" 
-                    id="job"
-                    value={job} 
-                    onChange={this.handleChange} />
-                <button type="submit">
-                    Submit
-                </button>
-            </form>
-        );
-    }
+    
+    const { age, emailAdress, firstName, nationality, secondName } = this.state; 
+    
+    
+    return (
+    <form className='container' onSubmit={this.onFormSubmit}>
+        <label htmlFor='age'>
+            <input 
+                type="number"
+                steps="any" 
+                name="age" 
+                id="age"
+                value={age}
+                placeholder='Age' 
+                onChange={this.handleChange} 
+                required
+            />
+        </label>
+        <label htmlFor='emailAdress'>
+            <input 
+                type="email" 
+                name="emailAdress" 
+                id="emailAdress"
+                value={emailAdress}
+                placeholder="Email Adress" 
+                onChange={this.handleChange} 
+                required
+            />
+        </label>
+        <label htmlFor='firstName'>
+            <input 
+                type="text" 
+                name="firstName" 
+                id="firstName"
+                value={firstName}
+                placeholder="First Name" 
+                onChange={this.handleChange} 
+                required
+            />
+        </label>
+        <label htmlFor='nationality'>
+            <input 
+                type="text" 
+                name="nationality" 
+                id="nationality"
+                value={nationality}
+                placeholder="Nationality" 
+                onChange={this.handleChange} 
+                required
+            />
+        </label>
+        <label htmlFor='secondName'>
+            <input 
+                type="text" 
+                name="secondName" 
+                id="secondName"
+                value={secondName}
+                placeholder="Second Name" 
+                onChange={this.handleChange} 
+                required
+            />
+        </label>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+    )
 }
 
 export default Form;

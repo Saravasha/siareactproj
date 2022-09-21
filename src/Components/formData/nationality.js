@@ -5,17 +5,15 @@ class Nationality extends Component {
   render() {
      return (
         <form>
-        <label htmlFor='Nationality'>
+        <label for='Nationality'>
           <input 
             type="text" 
-            name="Nationality"
+            name="nationality"
             id='Nationality'
-            value={Form.nationality}
-            placeholder='Nationality' 
-            onChange={this.handleChange} 
+            placeholder='Nationality'  
+            required
             />
         </label>
-        <input type="submit" value="Submit" />
       </form>
         )
     }

@@ -4,17 +4,15 @@ class FirstName extends Component {
   render() {
     return (
         <form>
-        <label htmlFor='FirstName'>
+        <label for='FirstName'>
           <input 
             type="text" 
-            name="FirstName"
+            name="firstName"
             id='FirstName'
-            value={Form.firstName}
-            placeholder='First Name' 
-            onChange={this.handleChange} 
+            placeholder='First Name'  
+            required
             />
         </label>
-        <input type="submit" value="Submit" />
       </form>
         )
     }
