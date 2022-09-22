@@ -1,60 +1,59 @@
-import React from 'react';
-import './App.css';
-import ReactDOM from "react-dom/client";
-import Table from './Components/Table';
+import TableBuilder from './Components/Table';
 import Form from './Components/Form';
-import { useState } from 'react';
-
+import React, { useState } from "react";
+import './App.css';
+import RemoveCharacter from './Components/RemoveCharacter';
+import HandleSubmit from './Components/HandleSubmit';
 function App() {
-    
-    characters = useState(0);
 
-    removeCharacter = index => {
-        const { characters } = this.state;
-    
-        this.setState({
-            characters: characters.filter((character, i) => { 
-                return i !== index;
-            })
-        });
-    }
+const [characters = []] = useState(0);
+// removeCharacter = index => {
+//     const { characters } = this.state;
 
-    handleSubmit = character => {
-        this.setState({characters: [...this.state.characters, character]});
-    }
-    const { characters } = this.state;
+//     this.setState({
+//         characters: characters.filter((character, i) => { 
+//             return i !== index;
+//         })
+//     });
+// }
+
+// handleSubmit = character => {
+//     this.setState({characters: [...this.state.characters, character]});
+// }
+
+// render() {
+    
+    const { characters: [] } = this.state;
     const empty = 0;
-
-    if (characters.length != empty) {
+    
+    if (characters.length !== empty) {
       return (
           <div className="App">
             <div className="container">
-              <h1>React Tutorial</h1>
-              <p>Add a character with a name and a job to the table.</p>
-              <Table
+              <h1>Siareactproj</h1>
+              <p>List ov dudes app.</p>
+              <TableBuilder
                 
                 characterData={characters}
-                removeCharacter={this.removeCharacter} /> 
-              <h3>Add New</h3>
-              <Form handleSubmit={this.handleSubmit} />
+                removeCharacter={RemoveCharacter(this.state)} /> 
+              <h4>Add more Users</h4>
+              <Form handleSubmit={HandleSubmit(this.state)} />
           </div>
         </div>
-      );
-      } 
+      )} 
       else { 
         return (
           <div className="App">
             <div className="container">
-              <h1>React Tutorial</h1>
-              <p>There are no characters added, please add some if you wish to view them on the table.</p>
-              <h3>Add New</h3>
-              <Form handleSubmit={this.handleSubmit} />
+              <h1>Siareactproj</h1>
+              <p>There are no dudes, please add some if you wish to view them on the table.</p>
+              <h4>Add a new User</h4>
+              <Form handleSubmit={HandleSubmit(this.state)} />
           </div>
         </div>
         )
       }
+    }
   
-  }
-
-
+// }
 export default App;

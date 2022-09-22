@@ -1,4 +1,5 @@
 import React from 'react';
+import Table from 'react-bootstrap/Table';
 
 const TableHeader = () => { 
     return (
@@ -9,7 +10,6 @@ const TableHeader = () => {
               <th>First Name</th>
               <th>Nationality</th>
               <th>Second Name</th>
-              <th>Remove</th>
             </tr>
         </thead>
     );
@@ -24,7 +24,7 @@ const TableBody = props => {
                 <td>{row.firstName}</td>
                 <td> {row.nationality}</td>
                 <td> {row.secondName} </td>
-                <td><button onClick={() => props.removeCharacter(index)}>Delete</button></td>
+                <td><button class="btn btn-danger" onClick={() => props.removeCharacter(index)}>Delete</button></td>
             </tr>
         );
     });
@@ -32,15 +32,15 @@ const TableBody = props => {
     return <tbody>{rows}</tbody>;
 }
 
-const Table = (props) => {
+const TableBuilder = (props) => {
 
     const { characterData, removeCharacter } = props;
         return (
-            <table>
+            <Table striped bordered hover>
                 <TableHeader />
                 <TableBody characterData={characterData} removeCharacter={removeCharacter} />
-            </table>
+            </Table>
         );
 }
 
-export default Table;
+export default TableBuilder;
