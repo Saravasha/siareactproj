@@ -4,7 +4,7 @@ import React, {useState} from "react";
 function RemoveCharacter(index) {
     const { characters } = this.state;
 
-    this.setState({
+    setState({
         characters: characters.filter((character, i) => { 
             return i !== index;
         })

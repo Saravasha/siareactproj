@@ -3,8 +3,8 @@ import React, {useState} from "react";
 function OnFormSubmit(event) {
     event.preventDefault();
 
-    this.props.HandleSubmit(this.state);
-    this.setState(this.initialState);
+    props.HandleSubmit(useState);
+    SetState(this.initialState);
 };
 
 export default OnFormSubmit;

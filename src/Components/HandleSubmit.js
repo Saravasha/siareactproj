@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function HandleSubmit(character) {
-    this.setState({characters: [...this.state.characters, character]});
+    setState({characters: [...setState.characters, character]});
 }
 
 export default HandleSubmit

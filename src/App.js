@@ -6,7 +6,7 @@ import RemoveCharacter from './Components/RemoveCharacter';
 import HandleSubmit from './Components/HandleSubmit';
 function App() {
 
-const [characters = []] = useState(0);
+const {characters: []} = useState(0);
 // removeCharacter = index => {
 //     const { characters } = this.state;
 
@@ -23,7 +23,7 @@ const [characters = []] = useState(0);
 
 // render() {
     
-    const { characters: [] } = this.state;
+    // const { characters: [] } = this.state;
     const empty = 0;
     
     if (characters.length !== empty) {
@@ -35,9 +35,9 @@ const [characters = []] = useState(0);
               <TableBuilder
                 
                 characterData={characters}
-                removeCharacter={RemoveCharacter(this.state)} /> 
+                removeCharacter={RemoveCharacter(useState)} /> 
               <h4>Add more Users</h4>
-              <Form handleSubmit={HandleSubmit(this.state)} />
+              <Form handleSubmit={HandleSubmit(useState)} />
           </div>
         </div>
       )} 
@@ -48,7 +48,7 @@ const [characters = []] = useState(0);
               <h1>Siareactproj</h1>
               <p>There are no dudes, please add some if you wish to view them on the table.</p>
               <h4>Add a new User</h4>
-              <Form handleSubmit={HandleSubmit(this.state)} />
+              <Form handleSubmit={HandleSubmit(useState)} />
           </div>
         </div>
         )

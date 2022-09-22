@@ -6,34 +6,37 @@ import HandleChange from './HandleChange';
 function Form ()   {
     
     // handleChange = event => {
-            //     const { name, value
-            //     } = event.target;
+    //     const { name, value
+    //     } = event.target;
+    
+    //     this.setState({
+        //         [name]: value,
+        //     });
+        // };
+        
+        // onFormSubmit = (event) => {
+            //     event.preventDefault();
             
-            //     this.setState({
-                //         [name]: value,
-                //     });
-                // };
-                
-                // onFormSubmit = (event) => {
-                    //     event.preventDefault();
-                    
-            //     this.props.handleSubmit(this.state);
-            //     this.setState(this.initialState);
-            // };
+    //     this.props.handleSubmit(this.state);
+    //     this.setState(this.initialState);
+    // };
 
-            this.state = useState(0);
-            this.initialState = {
-                age: '',
-                emailAdress: '',
-                firstName: '',
-                nationality: '',
-                secondName: ''
-            };
+    // const [age,emailAdress,firstName,nationality,secondName] = useState(0);
+
+
+    // this.state = useState(0);
+    // this.initialState = {
+    //     age: '',
+    //     emailAdress: '',
+    //     firstName: '',
+    //     nationality: '',
+    //     secondName: ''
+    // };
         
             this.state = this.initialState;
             // render()  {
                 
-                const { age, emailAdress, firstName, nationality, secondName } = this.state;
+                const { age, emailAdress, firstName, nationality, secondName } = useState(0);
                 
                 return (
                     <form className='container' onSubmit={OnFormSubmit}>
