@@ -1,33 +1,30 @@
 import TableBuilder from './Components/Table';
 import Form from './Components/Form';
-// import React, { useState } from "react";
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-// import RemoveCharacter from './Components/RemoveCharacter';
-// import HandleSubmit from './Components/HandleSubmit';
 
 
-class App extends Component {
-  state = {
-      characters: []
-  };
+const App = () =>  {
+  const [characters, setCharacters] = useState([]);
+ 
 
-  removeCharacter = index => {
-      const { characters } = this.state;
+ const removeCharacter = (index) => {
+   
+   
   
-      this.setState({
+    setCharacters({
           characters: characters.filter((character, i) => { 
               return i !== index;
           })
       });
   }
 
-  handleSubmit = character => {
-      this.setState({characters: [...this.state.characters, character]});
+  const handleSubmit = (character) => {
+    setCharacters({characters: [...characters, character]});
   }
 
-  render() {
-      const { characters } = this.state;
+  // render() {
+    
       
     const empty = 0;
     
@@ -40,9 +37,9 @@ class App extends Component {
               <TableBuilder
                 
                 characterData={characters}
-                removeCharacter={this.removeCharacter} /> 
+                removeCharacter={removeCharacter} /> 
               <h4>Add more Users</h4>
-              <Form handleSubmit={this.handleSubmit} />
+              <Form handleSubmit={handleSubmit} />
           </div>
         </div>
       )} 
@@ -60,5 +57,5 @@ class App extends Component {
       }
     }
   
-}
+// }
 export default App;

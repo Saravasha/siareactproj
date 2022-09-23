@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import OnFormSubmit from './OnFormSubmit';
-// import HandleChange from './HandleChange';
-
 
 
 class Form extends Component {
