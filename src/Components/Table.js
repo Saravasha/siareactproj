@@ -1,7 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 
-
 const TableHeader = () => { 
     return (
         <thead className='theader'>
@@ -16,7 +15,7 @@ const TableHeader = () => {
     );
 }
 
-const TableBody = props => { 
+const TableBody = (props) => { 
     const rows = props.characterData.map((row, index) => {
         return (
             <tr key={index}>
@@ -25,7 +24,7 @@ const TableBody = props => {
                 <td>{row.firstName}</td>
                 <td> {row.nationality}</td>
                 <td> {row.secondName} </td>
-                <td><button class="btn btn-danger" onClick={() => props.removeCharacter(index)}>Delete</button></td>
+                <td><button className="btn btn-danger" onClick={() => props.removeCharacter(index)}>Delete</button></td>
             </tr>
         );
     });

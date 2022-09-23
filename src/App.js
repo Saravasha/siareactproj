@@ -1,18 +1,20 @@
 import TableBuilder from './Components/Table';
 import Form from './Components/Form';
+
 import React, {useState} from 'react';
 import './App.css';
+// import RemoveCharacter from './Components/RemoveCharacter';
+// import HandleSubmit from './Components/HandleSubmit';
 
 
-const App = () =>  {
-  const [characters, setCharacters] = useState([]);
- 
-
- const removeCharacter = (index) => {
-   
-   
+export default function App() {
   
-    setCharacters({
+  const [state, setState] = useState({characters: []}); 
+
+  const removeCharacter = (index) => {
+      const { characters } = state;
+  
+      setState({
           characters: characters.filter((character, i) => { 
               return i !== index;
           })
@@ -20,11 +22,11 @@ const App = () =>  {
   }
 
   const handleSubmit = (character) => {
-    setCharacters({characters: [...characters, character]});
+      setState({characters: [...state.characters, character]});
   }
 
-  // render() {
-    
+
+      const { characters } = state;
       
     const empty = 0;
     
@@ -38,7 +40,7 @@ const App = () =>  {
                 
                 characterData={characters}
                 removeCharacter={removeCharacter} /> 
-              <h4>Add more Users</h4>
+              <h4>Add more Dudes</h4>
               <Form handleSubmit={handleSubmit} />
           </div>
         </div>
@@ -49,13 +51,11 @@ const App = () =>  {
             <div className="container">
               <h1>Siareactproj</h1>
               <p>There are no dudes, please add some if you wish to view them on the table.</p>
-              <h4>Add a new User</h4>
-              <Form handleSubmit={this.handleSubmit} />
+              <h4>Add a new Dude</h4>
+              <Form handleSubmit={handleSubmit} />
           </div>
         </div>
         )
       }
     }
   
-// }
-export default App;
