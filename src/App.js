@@ -1,29 +1,34 @@
 import TableBuilder from './Components/Table';
 import Form from './Components/Form';
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React, {Component} from 'react';
 import './App.css';
-import RemoveCharacter from './Components/RemoveCharacter';
-import HandleSubmit from './Components/HandleSubmit';
-function App() {
+// import RemoveCharacter from './Components/RemoveCharacter';
+// import HandleSubmit from './Components/HandleSubmit';
 
-const {characters: []} = useState(0);
-// removeCharacter = index => {
-//     const { characters } = this.state;
 
-//     this.setState({
-//         characters: characters.filter((character, i) => { 
-//             return i !== index;
-//         })
-//     });
-// }
+class App extends Component {
+  state = {
+      characters: []
+  };
 
-// handleSubmit = character => {
-//     this.setState({characters: [...this.state.characters, character]});
-// }
+  removeCharacter = index => {
+      const { characters } = this.state;
+  
+      this.setState({
+          characters: characters.filter((character, i) => { 
+              return i !== index;
+          })
+      });
+  }
 
-// render() {
-    
-    // const { characters: [] } = this.state;
+  handleSubmit = character => {
+      this.setState({characters: [...this.state.characters, character]});
+  }
+
+  render() {
+      const { characters } = this.state;
+      
     const empty = 0;
     
     if (characters.length !== empty) {
@@ -35,9 +40,9 @@ const {characters: []} = useState(0);
               <TableBuilder
                 
                 characterData={characters}
-                removeCharacter={RemoveCharacter(useState)} /> 
+                removeCharacter={this.removeCharacter} /> 
               <h4>Add more Users</h4>
-              <Form handleSubmit={HandleSubmit(useState)} />
+              <Form handleSubmit={this.handleSubmit} />
           </div>
         </div>
       )} 
@@ -48,12 +53,12 @@ const {characters: []} = useState(0);
               <h1>Siareactproj</h1>
               <p>There are no dudes, please add some if you wish to view them on the table.</p>
               <h4>Add a new User</h4>
-              <Form handleSubmit={HandleSubmit(useState)} />
+              <Form handleSubmit={this.handleSubmit} />
           </div>
         </div>
         )
       }
     }
   
-// }
+}
 export default App;

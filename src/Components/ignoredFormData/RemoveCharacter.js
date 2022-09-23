@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 
 
-function RemoveCharacter(index) {
-    const { characters } = this.state;
 
-    setState({
+const RemoveCharacter = (index)  => {
+
+    const [characters, setCharacters] = useState();
+
+
+    setCharacters({
         characters: characters.filter((character, i) => { 
             return i !== index;
         })

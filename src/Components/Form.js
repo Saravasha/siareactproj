@@ -1,45 +1,47 @@
-import React, { useState } from 'react';
-import OnFormSubmit from './OnFormSubmit';
-import HandleChange from './HandleChange';
+import React, { Component } from 'react';
+// import OnFormSubmit from './OnFormSubmit';
+// import HandleChange from './HandleChange';
 
 
-function Form ()   {
+
+class Form extends Component {
+    constructor(props) {
+        super(props);
+ 
+ 
+    this.initialState = {
+        age: '',
+        emailAdress: '',
+        firstName: '',
+        nationality: '',
+        secondName: ''
+    };
+ 
+    this.state = this.initialState;
+}
+    handleChange = event => {
+        const { name, value} = event.target;
     
-    // handleChange = event => {
-    //     const { name, value
-    //     } = event.target;
-    
-    //     this.setState({
-        //         [name]: value,
-        //     });
-        // };
+        this.setState({
+                [name]: value,
+            });
+        }
         
-        // onFormSubmit = (event) => {
-            //     event.preventDefault();
+    onFormSubmit = (event) => {
+        event.preventDefault();
             
-    //     this.props.handleSubmit(this.state);
-    //     this.setState(this.initialState);
-    // };
+        this.props.handleSubmit(this.state);
+        this.setState(this.initialState);
+    }
 
     // const [age,emailAdress,firstName,nationality,secondName] = useState(0);
 
 
-    // this.state = useState(0);
-    // this.initialState = {
-    //     age: '',
-    //     emailAdress: '',
-    //     firstName: '',
-    //     nationality: '',
-    //     secondName: ''
-    // };
-        
-            this.state = this.initialState;
-            // render()  {
-                
-                const { age, emailAdress, firstName, nationality, secondName } = useState(0);
-                
-                return (
-                    <form className='container' onSubmit={OnFormSubmit}>
+render() {
+    const { age, emailAdress, firstName, nationality, secondName } = this.state; 
+
+    return (
+                    <form className='container' onSubmit={this.onFormSubmit}>
                     <label htmlFor='age'>
                         <input
                             type="number"
@@ -48,7 +50,7 @@ function Form ()   {
                             id="age"
                             value={age}
                             placeholder='Age'
-                            onChange={HandleChange}
+                            onChange={this.handleChange}
                             required />
                     </label>
                     <label htmlFor='emailAdress'>
@@ -58,7 +60,7 @@ function Form ()   {
                             id="emailAdress"
                             value={emailAdress}
                             placeholder="Email Adress"
-                            onChange={HandleChange}
+                            onChange={this.handleChange}
                             required />
                     </label>
                     <label htmlFor='firstName'>
@@ -68,7 +70,7 @@ function Form ()   {
                             id="firstName"
                             value={firstName}
                             placeholder="First Name"
-                            onChange={HandleChange}
+                            onChange={this.handleChange}
                             required />
                     </label>
                     <label htmlFor='nationality'>
@@ -78,7 +80,7 @@ function Form ()   {
                             id="nationality"
                             value={nationality}
                             placeholder="Nationality"
-                            onChange={HandleChange}
+                            onChange={this.handleChange}
                             required />
                     </label>
                     <label htmlFor='secondName'>
@@ -88,7 +90,7 @@ function Form ()   {
                             id="secondName"
                             value={secondName}
                             placeholder="Second Name"
-                            onChange={HandleChange}
+                            onChange={this.handleChange}
                             required />
                     </label>
                     <button type="submit">
@@ -97,6 +99,6 @@ function Form ()   {
                 </form>
             );
         }
-    // }
+    }
 
 export default Form;
