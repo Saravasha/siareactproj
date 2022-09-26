@@ -3,15 +3,16 @@ import React, { useState} from 'react';
 
 export default function Form(props) {
 
-    const [state, setState] = useState({
+    const [state, setState] = useState(
+        {
         age: "",
         emailAdress: "",
         firstName: "",
         nationality: "",
         secondName: "",
-    });
+    }
+    );
  
-    // state = useState;
 
     const handleChange = (event) => {
         const { name, value} = event.target;
@@ -24,9 +25,15 @@ export default function Form(props) {
     const onFormSubmit = (event) => {
         event.preventDefault();
             
-        props.handleSubmit(setState);
-        setState(props);
+        props.handleSubmit(state);
+        setState(state);
     }
+
+    // console.log("state:", state);
+    // console.log(setState);
+    // console.log(useState);
+    // console.log(props.handleSubmit);
+    
 
     const { age, emailAdress, firstName, nationality, secondName } = useState(); 
 

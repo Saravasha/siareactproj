@@ -9,7 +9,7 @@ import './App.css';
 
 export default function App() {
   
-  const [state, setState] = useState({characters: []}); 
+  const [state, setState] = useState({characters: []});
 
   const removeCharacter = (index) => {
       const { characters } = state;
@@ -23,14 +23,16 @@ export default function App() {
 
   const handleSubmit = (character) => {
       setState({characters: [...state.characters, character]});
-  }
 
+  }
 
       const { characters } = state;
       
     const empty = 0;
+
     
-    if (characters.length !== empty) {
+    
+    if (state.length !== empty) {
       return (
           <div className="App">
             <div className="container">
