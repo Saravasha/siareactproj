@@ -3,8 +3,6 @@ import Form from './Components/Form';
 
 import React, {useState} from 'react';
 import './App.css';
-// import RemoveCharacter from './Components/RemoveCharacter';
-// import HandleSubmit from './Components/HandleSubmit';
 
 
 export default function App() {
