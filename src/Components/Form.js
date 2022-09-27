@@ -4,15 +4,7 @@ export default function Form({handleSubmit}) {
 
     const [state, setState] = useState({age: '', emailAdress: '', firstName: '', nationality: '', secondName:''});
  
-    // state = useState;
 
-    // const handleChange = (event) => {
-    //     const { name, value} = event.target;
-    
-    //     setState({
-    //             [name]: value,
-    //         });
-    //     }
         const handleChange = (event) => {
             setState({ ...state, [event.target.name]: event.target.value });
             
