@@ -1,43 +1,35 @@
 import React, { useState} from 'react';
 
+export default function Form({handleSubmit}) {
 
-export default function Form(props) {
-
-    const [state, setState] = useState(
-        {
-        age: "",
-        emailAdress: "",
-        firstName: "",
-        nationality: "",
-        secondName: "",
-    }
-    );
+    const [state, setState] = useState({age: '', emailAdress: '', firstName: '', nationality: '', secondName:''});
  
+    // state = useState;
 
-    const handleChange = (event) => {
-        const { name, value} = event.target;
+    // const handleChange = (event) => {
+    //     const { name, value} = event.target;
     
-        setState({
-                [name]: value,
-            });
+    //     setState({
+    //             [name]: value,
+    //         });
+    //     }
+        const handleChange = (event) => {
+            setState({ ...state, [event.target.name]: event.target.value });
+            
+          };
+          
+        const onFormSubmit = (event) => {
+            event.preventDefault();
+            console.log(state);
+        
+            handleSubmit(state);
+            setState(state);
         }
         
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-            
-        props.handleSubmit(state);
-        setState(state);
-    }
+       
 
-    // console.log("state:", state);
-    // console.log(setState);
-    // console.log(useState);
-    // console.log(props.handleSubmit);
-    
+        return (
 
-    const { age, emailAdress, firstName, nationality, secondName } = useState(); 
-
-    return (
                 <form className='container' onSubmit={onFormSubmit}>
                 <label htmlFor='age'>
                     <input
@@ -45,7 +37,7 @@ export default function Form(props) {
                         steps="any"
                         name="age"
                         id="age"
-                        value={age}
+                        value={state.age}
                         placeholder='Age'
                         onChange={handleChange}
                         required />
@@ -55,7 +47,7 @@ export default function Form(props) {
                         type="email"
                         name="emailAdress"
                         id="emailAdress"
-                        value={emailAdress}
+                        value={state.emailAdress}
                         placeholder="Email Adress"
                         onChange={handleChange}
                         required />
@@ -65,7 +57,7 @@ export default function Form(props) {
                         type="text"
                         name="firstName"
                         id="firstName"
-                        value={firstName}
+                        value={state.firstName}
                         placeholder="First Name"
                         onChange={handleChange}
                         required />
@@ -75,7 +67,7 @@ export default function Form(props) {
                         type="text"
                         name="nationality"
                         id="nationality"
-                        value={nationality}
+                        value={state.nationality}
                         placeholder="Nationality"
                         onChange={handleChange}
                         required />
@@ -85,7 +77,7 @@ export default function Form(props) {
                         type="text"
                         name="secondName"
                         id="secondName"
-                        value={secondName}
+                        value={state.secondName}
                         placeholder="Second Name"
                         onChange={handleChange}
                         required />
