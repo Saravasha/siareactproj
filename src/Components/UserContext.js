@@ -2,7 +2,7 @@ import {useState, createContext, useContext} from "react";
 import { ReactDOM } from "react";
 
 
-const UserContext = (setLoginName) => {
+const UserContext = (props) => {
   const [user, setUser] = useContext("Login")  
   const UC = createContext();
 
