@@ -1,5 +1,5 @@
 import React, {useContext, useState } from "react";
-import UseContext from "./UseContext";
+import UserContext from "./UserContext";
 
  const Login = () => {
 
@@ -9,12 +9,11 @@ import UseContext from "./UseContext";
     return (
         <div>
             
-<h1>pijwpji</h1>
-            <input type='text'
+            <h1>pijwpji</h1>
+                <input type='text'
                     onChange={(event) => { 
                         setLoginName(event.target.value)
-                    }}/>
-
+                }}/>
         </div>
     )
 }
