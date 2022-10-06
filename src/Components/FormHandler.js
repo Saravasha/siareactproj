@@ -1,7 +1,7 @@
 import TableBuilder from './Table';
 import Form from './Form';
 import React, {useState} from 'react';
-
+import TableHandler from './TableHandler'
 
 
 export default function FormHandler() {
@@ -34,12 +34,14 @@ export default function FormHandler() {
             <div className="container">
               <h1>Siareactproj</h1>
               <p>List ov dudes app.</p>
-              <TableBuilder
+              <TableHandler>
+                <TableBuilder
                 
-                characterData={characters}
-                removeCharacter={removeCharacter} /> 
+                characterData={characters} 
+                removeCharacter={removeCharacter} />  
               <h4>Add more Dudes</h4>
               <Form handleSubmit={handleSubmit} />
+                </TableHandler>
           </div>
         </div>
       )} 

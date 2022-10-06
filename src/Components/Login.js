@@ -1,4 +1,5 @@
 import React, {useContext, useState } from "react";
+import HeaderLayout from "./HeaderLayout";
 import UserContext from "./UserContext";
 
  const Login = () => {
@@ -9,11 +10,20 @@ import UserContext from "./UserContext";
     return (
         <div>
             
-            <h1>pijwpji</h1>
-                <input type='text'
-                    onChange={(event) => { 
-                        setLoginName(event.target.value)
-                }}/>
+            <form onSubmit={(event) => {
+                    event.preventDefault() 
+                    setLoginName(event.target.value)
+                    
+                    console.log(event.target.value)
+                }} >
+                <h1>
+                    Login Form: pijwpji
+                    </h1>
+                <input type='text' required/>
+                <button type="submit">
+                    Submit
+                </button>
+                </form>
         </div>
     )
 }

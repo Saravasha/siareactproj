@@ -3,7 +3,10 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Login from './Components/Login';
-
+import TableBuilder from './Components/Table';
+import HeaderLayout from './Components/HeaderLayout';
+import Form from './Components/Form';
+import TableHandler from './Components/TableHandler'
 
 export default function App() {
   
@@ -11,14 +14,16 @@ export default function App() {
     <div className='App'>
   
     <Routes>
-      <Route path="/" element={<Login />}>
-        {/* <Route index element={<Home />} />
-        <Route path="blogs" element={<Blogs />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="*" element={<NoPage />} /> */}
-      </Route>
+      <Route path="/login" element={<Login />}/>
+        <Route path="" element={<HeaderLayout />} />
+        <Route path="/Form" element={<FormHandler />} />
+        <Route path="/Table" element={<TableHandler />} />
+        <Route path="/TableHandler" element={<TableBuilder />} />
+        <Route path="/FormHandler" element={<FormHandler />} />
+        {/* <Route path="*" element={<NoPage />} />  */}
+        
     </Routes>
-      {/* <FormHandler/> */}
+
   </div>
 
   )

@@ -21,7 +21,8 @@ export default function Form({handleSubmit}) {
        
 
         return (
-
+            <div>
+                {/* <h1>Add Dudes Form</h1> */}
                 <form className='container' onSubmit={onFormSubmit}>
                 <label htmlFor='age'>
                     <input
@@ -78,5 +79,6 @@ export default function Form({handleSubmit}) {
                     Submit
                 </button>
             </form>
+        </div>
         );
     }

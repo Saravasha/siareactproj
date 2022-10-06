@@ -9,10 +9,10 @@ const UserContext = (props) => {
   return (
 
       <div>
-      <UC.Provider value={setUser}/>
+      <UserContext.Provider value={setUser}/>
         <h1>gefgaefafafs</h1>
         <h1>{`hello ${user}!`}</h1>
-      <UC.Provider/>
+      <UserContext.Provider/>
        
   
       </div>
