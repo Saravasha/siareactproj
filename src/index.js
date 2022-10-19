@@ -4,20 +4,20 @@ import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {  BrowserRouter } from "react-router-dom";
-
+import UserContext,{UserInfo} from './Components/UserContext';
 
 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
+  <UserContext.Provider value={UserInfo} >
+
   <BrowserRouter>
     <App />
   </BrowserRouter>
-   
-  // <React.StrictMode>
-  // </React.StrictMode>
-);
+ </UserContext.Provider>)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

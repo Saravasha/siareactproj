@@ -12,7 +12,7 @@ const HeaderLayout = () => {
       <nav>
         <ul>
             <li>
-              <Link to="Login">Login</Link>
+              <Link to="/Login">Login</Link>
             </li>
             <li>
               <Link to="/Home">Home</Link>
