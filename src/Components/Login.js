@@ -1,42 +1,75 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, createContext } from "react";
 import HeaderLayout from "./HeaderLayout";
-import UserInfoExp from "./UserContext";
+// import UserInfoExp from "./UserContext";
 import { Link } from "react-router-dom";
 import BrowserRouter from 'react'
+import { UserContext } from "./UserContext";
+import { useNavigate } from "react-router-dom";
 
-const Login = (prop) => {
-    
-    // const {login} = useContext(UseContext);
-    const [loginName, setLoginName] = useState();
-    
-    const UserI = useContext(UserInfoExp)
-    
-    const HandleSubmit = (event) => {
-        event.preventDefault() 
-        
-        UserI.UserName = event.target[0].value         
-        
-        console.log(UserI.UserName)
-        setLoginName(loginName)
-    }
-    return (
-        <div>
+export default function Login() {
+
+    const [user, setUser] = useState("User");
+    const userContext = createContext()
+    const [login, setLogin] = useState("Unauthorized");
+    var testUseContext = useContext(UserContext)
+    const navigate = useNavigate()
+        const handleChange = (event) => {
+            setUser({  [event.target.name]: event.target.value });
             
-            <form className="container" onSubmit={HandleSubmit}>
-                <h1>
-                    Login Form: pijwpji
-                    </h1>
-                <input 
-                    placeholder="User Name" 
-                    type='text' 
-                    name="username"
-                    required
-                />
-                <button type="submit" value="Submit">Submit
-                </button>
-                </form>
-        </div>
-    )
-}
+          };
+          
+          
+          const onFormSubmit = (event) => {
+              event.preventDefault();
+              
+            //   handleSubmit(user);
+            //   user = {userContext}
+              
+            //   const gerk = setUser(user)
+              // console.log(setUserContext);
+              console.log(user);
+            //   const userContext = React.createContext(gerk) 
+              testUseContext = user;
+              const gerk = [setLogin(login, user)]
+              console.log(testUseContext);
+              console.log(gerk);
+              navigate('/successeded', {
+                state: {
+                    user: user.user
 
-export default Login;
+                }
+            });
+        }
+              // UserContext = user
+        
+            
+            // const setUserContext = (userContext) => {
+                
+                //     return <UserContext.Provider value={userContext}></UserContext.Provider>
+                
+                // }
+                
+                // const value = React.useContext(testUseContext)
+                // console.log(value);
+
+                return (
+                <div>
+      {/* <p>{value}</p> */}
+                <form className='container' onSubmit={onFormSubmit}>
+                <label htmlFor='username'>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        
+                        placeholder='User Name'
+                        onChange={handleChange}
+                        required />
+                </label>
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+        </div>
+        );
+    }

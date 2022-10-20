@@ -14,8 +14,8 @@ export default function App() {
     <div className='App'>
   
     <Routes>
-      <Route path="/login" element={<Login />}/>
-        <Route path="" element={<HeaderLayout />} />
+      <Route path="/" element={<Login />}/>
+        <Route path="/successeded" element={<HeaderLayout />} />
         <Route path="/Form" element={<FormHandler />} />
         <Route path="/Table" element={<TableHandler />} />
         <Route path="/TableHandler" element={<TableBuilder />} />
