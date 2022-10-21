@@ -5,18 +5,17 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {  BrowserRouter } from "react-router-dom";
 import { UserContext } from './Components/UserContext';
+import { Login } from './Components/Login';
+import { useContext } from 'react';
 
 import reportWebVitals from './reportWebVitals';
 
-const value = ""
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
+  
 <BrowserRouter>
-<UserContext.Provider value={value}>
 
     <App />
-</UserContext.Provider>
   </BrowserRouter>
 )
 

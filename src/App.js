@@ -7,12 +7,18 @@ import TableBuilder from './Components/Table';
 import HeaderLayout from './Components/HeaderLayout';
 import Form from './Components/Form';
 import TableHandler from './Components/TableHandler'
+import { UserContext } from './Components/UserContext';
+import { useState, useMemo } from 'react';
 
 export default function App() {
   
+
+  const [user, setUser] = useState();
+  const value = useMemo(()=> ({user, setUser}),[user, setUser])
+
   return (
     <div className='App'>
-  
+  <UserContext.Provider value={value}>
     <Routes>
       <Route path="/" element={<Login />}/>
         <Route path="/successeded" element={<HeaderLayout />} />
@@ -20,9 +26,10 @@ export default function App() {
         <Route path="/Table" element={<TableHandler />} />
         <Route path="/TableHandler" element={<TableBuilder />} />
         <Route path="/FormHandler" element={<FormHandler />} />
-        {/* <Route path="*" element={<NoPage />} />  */}
+
         
     </Routes>
+</UserContext.Provider>
 
   </div>
 

@@ -9,16 +9,13 @@ export function HeaderLayout() {
   const mesg = useContext(UserContext)
   return (
     <div className="App">
-<p>{mesg}</p>
-    <h1>{mesg}</h1>
+{/* <p>{mesg}</p>
+    <h1>{mesg}</h1> */}
       <nav>
         <ul>
             <li>
               <Link to="/">Logout</Link>
             </li>
-            {/* <li>
-              <Link to="/Home">Home</Link>
-            </li> */}
             <li>
               <Link to="/Form">Form</Link>
             </li>
