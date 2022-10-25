@@ -11,26 +11,30 @@ export default function Login() {
     const msg = useContext(UserContext);
     
     const navigate = useNavigate()
-
-        const handleChange = (event) => {
+    
+    const handleChange = (event) => {
             setUser({  [event.target.name]: event.target.value });
             
+            console.log(user)
           };
           
           const onFormSubmit = (event) => {
-              event.preventDefault();
-              
+            event.preventDefault();
+            
             setUser(user)
-              navigate('/successeded')
-                ;
-                console.log(user)
+            console.log(user)
+            navigate('/successeded')
             }
        
-                return (
+            
+            // console.log(msg);
+            return (
             
 
         <div>
-            <p>{msg}</p>
+            {/* <p>{msg}</p> */}
+          <p>{user.username}</p>
+          <p>{msg}</p>
       <form onSubmit={onFormSubmit}>
         <label htmlFor='username'>
         <input

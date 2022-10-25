@@ -3,14 +3,17 @@ import {  Link } from "react-router-dom";
 import FormHandler from "./FormHandler";
 import TableBuilder from "./Table";
 import Form from "./Form";
+import { useState } from "react";
 import {UserContext} from './UserContext';
 
-export function HeaderLayout() {
-  const mesg = useContext(UserContext)
+export function HeaderLayout(props) {
+
+  const [user, setUser] = useState(props);
+  const msg = useContext(UserContext)
+
   return (
     <div className="App">
-{/* <p>{mesg}</p>
-    <h1>{mesg}</h1> */}
+
       <nav>
         <ul>
             <li>
@@ -34,7 +37,7 @@ export function HeaderLayout() {
               <li>
                 <Link to="/FormHandler" >FormHandler</Link>
               </li>
-
+              <p>{user.username}</p>
         </ul>
       </nav>
 

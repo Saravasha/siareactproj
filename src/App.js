@@ -8,20 +8,21 @@ import HeaderLayout from './Components/HeaderLayout';
 import Form from './Components/Form';
 import TableHandler from './Components/TableHandler'
 import { UserContext } from './Components/UserContext';
-import { useState, useMemo } from 'react';
+import { useContext, useState } from 'react';
+import Dashboard from './Components/Dashboard';
 
 export default function App() {
   
 
   const [user, setUser] = useState();
-  const value = useMemo(()=> ({user, setUser}),[user, setUser])
+
 
   return (
     <div className='App'>
-  <UserContext.Provider value={value}>
+  <UserContext.Provider value={"Zigi plz"}>
     <Routes>
       <Route path="/" element={<Login />}/>
-        <Route path="/successeded" element={<HeaderLayout />} />
+        <Route path="/successeded" element={<Dashboard />} />
         <Route path="/Form" element={<FormHandler />} />
         <Route path="/Table" element={<TableHandler />} />
         <Route path="/TableHandler" element={<TableBuilder />} />
