@@ -4,12 +4,16 @@ import FormHandler from "./FormHandler";
 import TableBuilder from "./Table";
 import Form from "./Form";
 import { useState } from "react";
-import UserContext from './UserContext';
 
-export function HeaderLayout(props) {
+import Login from "./Login";
 
-  const [user, setUser] = useState(props);
-  
+import UserContext, {User} from './UserContext';
+import { getValue } from "@testing-library/user-event/dist/utils";
+
+
+export function HeaderLayout () {  
+  const [user, updateUser] = useState(User);
+  const newUser = useContext(UserContext)
   return (
     <div className="App">
 
@@ -36,14 +40,14 @@ export function HeaderLayout(props) {
               <li>
                 <Link to="/FormHandler" >FormHandler</Link>
               </li>
-              <p>{UserContext.Consumer.user.username}</p>
+              <li>
+              <p>{user.username}</p>
+
+              </li>
         </ul>
       </nav>
 
     </div>
 
   )
-};
-
-
-export default HeaderLayout;
+}

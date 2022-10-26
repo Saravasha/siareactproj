@@ -1,7 +1,7 @@
 import React from 'react';
-import HeaderLayout from './HeaderLayout';
-import UserContext from "./UserContext";
-import { useContext } from 'react';
+import {HeaderLayout, headerUserName} from './HeaderLayout';
+import { useContext, useState } from 'react';
+import UserContext, {User} from './UserContext';
 
 function Dashboard() {
  
@@ -9,12 +9,13 @@ function Dashboard() {
   // const handleLogout = () => {    
   //   history.push('/login');
   // }
-  const msg = useContext(UserContext);
+  const [user, updateUser] = useState(User);
+  const newUser = useContext(UserContext)
 
   return (
     <div>
       <p>
-        {msg}
+        {newUser.username}
         </p>
       Welcome User!<br /><br />
       {/* <input type="button" onClick={handleLogout} value="Logout" /> */}

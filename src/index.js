@@ -8,13 +8,17 @@ import { Login } from './Components/Login';
 import { useContext } from 'react';
 
 import reportWebVitals from './reportWebVitals';
+import UserContext, {user} from './Components/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
 <BrowserRouter>
+<UserContext.Provider value={user.username}>
+
 
     <App />
+</UserContext.Provider>
   </BrowserRouter>
 )
 

@@ -1,47 +1,41 @@
 import React, { useContext, useState, createContext } from "react";
 import HeaderLayout from "./HeaderLayout";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import BrowserRouter from 'react'
 import { useNavigate } from "react-router-dom";
-import UserContext from "./UserContext";
 import Dashboard from "./Dashboard";
 import App from "../App";
 import ReactDOM from "react-dom";
+import UserContext, {User} from './UserContext';
 
-export default function Login() {
 
-    const [user, setUser] = useState({username: "User", isAuth: false});
-    var msg = useContext(UserContext);
-    
-    const navigate = useNavigate()
+
+function Login() {
+  
+  const [user, setUser] = useState({username: "User", isAuth: false});
+    const navigate = useNavigate();
+
     
     const handleChange = (event) => {
             setUser({...user, [event.target.name]: event.target.value})
             
             console.log(user)
           };
-          
+           
           const onFormSubmit = (event) => {
             event.preventDefault();
             
-            const gerk = () => setUser({...user, [event.target.name]: event.target.value, isAuth: true})
-            msg = user
-            
-            navigate('/successeded')
-            gerk()
-            }
-            const SetContextAsState = (gerk) => {
-              useState(UserContext)
-            }
-            SetContextAsState()
-            
+            setUser({...user, [event.target.name]: event.target.value, isAuth: true})
+
             console.log(user)
-            
+            navigate("/successeded")
+          }
+
             return (
             
 
         <div>
-            <p>{msg}</p>
+            <p>{user.user}</p>
           <p>{user.username}</p>
           {/* <div> */}
             {user.isAuth? (`Welcome ${user.username}` ) : "You should login"}
@@ -66,3 +60,4 @@ export default function Login() {
         </div>
                 );
   }
+  export default Login
