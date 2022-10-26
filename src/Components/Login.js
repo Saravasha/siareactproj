@@ -3,17 +3,20 @@ import HeaderLayout from "./HeaderLayout";
 import { Link } from "react-router-dom";
 import BrowserRouter from 'react'
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import UserContext from "./UserContext";
+import Dashboard from "./Dashboard";
+import App from "../App";
+import ReactDOM from "react-dom";
 
 export default function Login() {
 
-    const [user, setUser] = useState("User");
-    const msg = useContext(UserContext);
+    const [user, setUser] = useState({username: "User", isAuth: false});
+    var msg = useContext(UserContext);
     
     const navigate = useNavigate()
     
     const handleChange = (event) => {
-            setUser({  [event.target.name]: event.target.value });
+            setUser({...user, [event.target.name]: event.target.value})
             
             console.log(user)
           };
@@ -21,34 +24,42 @@ export default function Login() {
           const onFormSubmit = (event) => {
             event.preventDefault();
             
-            return (
-
-              setUser(user), console.log(user), navigate('/successeded')
-              )
-            }
-       
+            const gerk = () => setUser({...user, [event.target.name]: event.target.value, isAuth: true})
+            msg = user
             
-            // console.log(msg);
+            navigate('/successeded')
+            gerk()
+            }
+            const SetContextAsState = (gerk) => {
+              useState(UserContext)
+            }
+            SetContextAsState()
+            
+            console.log(user)
+            
             return (
             
 
         <div>
-            {/* <p>{msg}</p> */}
+            <p>{msg}</p>
           <p>{user.username}</p>
-          <p>{msg}</p>
+          {/* <div> */}
+            {user.isAuth? (`Welcome ${user.username}` ) : "You should login"}
+            {/* </div> */}
+          
       <form onSubmit={onFormSubmit}>
-        <label htmlFor='username'>
+        <label htmlFor='user'>
         <input
         type="text"
         name="username"
         id="username"
+        value={user.username}
 
         placeholder='User Name'
         onChange={handleChange}
         required />
         </label>
-        <button type="submit">
-        Submit
+        <button type="submit" onClick={() => setUser(user)}>Submit
         </button>
         </form>
         

@@ -4,13 +4,12 @@ import FormHandler from "./FormHandler";
 import TableBuilder from "./Table";
 import Form from "./Form";
 import { useState } from "react";
-import {UserContext} from './UserContext';
+import UserContext from './UserContext';
 
 export function HeaderLayout(props) {
 
   const [user, setUser] = useState(props);
-  const msg = useContext(UserContext)
-
+  
   return (
     <div className="App">
 
@@ -37,7 +36,7 @@ export function HeaderLayout(props) {
               <li>
                 <Link to="/FormHandler" >FormHandler</Link>
               </li>
-              <p>{user.username}</p>
+              <p>{UserContext.Consumer.user.username}</p>
         </ul>
       </nav>
 

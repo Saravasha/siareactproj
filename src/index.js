@@ -4,7 +4,6 @@ import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {  BrowserRouter } from "react-router-dom";
-import { UserContext } from './Components/UserContext';
 import { Login } from './Components/Login';
 import { useContext } from 'react';
 

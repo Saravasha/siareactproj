@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderLayout from './HeaderLayout';
-import { UserContext } from './UserContext';
+import UserContext from "./UserContext";
 import { useContext } from 'react';
 
 function Dashboard() {

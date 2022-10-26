@@ -7,32 +7,39 @@ import TableBuilder from './Components/Table';
 import HeaderLayout from './Components/HeaderLayout';
 import Form from './Components/Form';
 import TableHandler from './Components/TableHandler'
-import { UserContext } from './Components/UserContext';
+import UserContext from "./Components/UserContext";
 import { useContext, useState } from 'react';
 import Dashboard from './Components/Dashboard';
 
-export default function App(onFormSubmit) {
+
+export default function App() {
   
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(UserContext, {});
 
-
+const value = {user, setUser};
+useContext(value)
+console.log("app = ", user.username);
   return (
     <div className='App'>
-  <UserContext.Provider value={"gerp"}>
+    <UserContext.Provider value={value.user.username}>
+      <div>
+
+      </div>
     <Routes>
-      <Route path="/" element={<Login />}/>
-        <Route path="/successeded" element={<Dashboard />} />
+        <Route path="/" element={!user.isAuth?<Login />: <HeaderLayout/>}/>
+        <Route path="/successeded" element={<HeaderLayout />} />
         <Route path="/Form" element={<FormHandler />} />
         <Route path="/Table" element={<TableHandler />} />
         <Route path="/TableHandler" element={<TableBuilder />} />
         <Route path="/FormHandler" element={<FormHandler />} />
 
         
+        
     </Routes>
 </UserContext.Provider>
-
   </div>
+
 
   )
 }
