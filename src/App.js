@@ -11,7 +11,7 @@ import { UserContext } from './Components/UserContext';
 import { useContext, useState } from 'react';
 import Dashboard from './Components/Dashboard';
 
-export default function App() {
+export default function App(onFormSubmit) {
   
 
   const [user, setUser] = useState();
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div className='App'>
-  <UserContext.Provider value={"Zigi plz"}>
+  <UserContext.Provider value={"gerp"}>
     <Routes>
       <Route path="/" element={<Login />}/>
         <Route path="/successeded" element={<Dashboard />} />

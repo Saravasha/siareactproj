@@ -21,9 +21,10 @@ export default function Login() {
           const onFormSubmit = (event) => {
             event.preventDefault();
             
-            setUser(user)
-            console.log(user)
-            navigate('/successeded')
+            return (
+
+              setUser(user), console.log(user), navigate('/successeded')
+              )
             }
        
             
